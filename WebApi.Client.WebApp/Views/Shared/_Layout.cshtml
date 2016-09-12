@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <script src="~/scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="~/scripts/angular.min.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper container">
+        <header>
+            <a href="/"><img src="" alt="Logo"></a>
+        </header>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active">@Html.ActionLink("Home", "Index", "Customer")</li>
+                <li>@Html.ActionLink("About us","About","Customer")</li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div ng-app="Myapp" class="row content">
+            @RenderBody()
+        </div>
+        <footer class="page-footer grey center-on-small-only">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="title">Footer Content</h5>
+                        <p>Here you can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="title">Links</h5>
+                        <ul>
+                            <li><a href="#!">Link 1</a></li>
+                            <li><a href="#!">Link 2</a></li>
+                            <li><a href="#!">Link 3</a></li>
+                            <li><a href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>         
+            <div class="footer-copyright dark-grey">
+                <div class="container-fluid">
+                    © 2015 Copyright: <a href="#"> www.aditya.com </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
