@@ -31,10 +31,10 @@
 
 var app = angular.module('Myapp', []);
 app.controller("Customers", function ($scope, $http) {
-    var windowsServiceUrl = "http://localhost:8090/api/customer";
+    //var windowsServiceUrl = "http://localhost:8090/api/customer";
     var webAppUrl = "http://localhost:50950/api/customer";
 
-    $http.get(windowsServiceUrl).
+    $http.get(webAppUrl).
     success(function (data, status, headers, config) {
         $scope.items = data;
     }).
