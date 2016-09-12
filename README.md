@@ -1,6 +1,6 @@
 # WebApi.Base.Framework
 
-Following feature are implemented :
+Following features are implemented :
 a) Swagger
 b) Owin Self Hosting. [WebApi.Owin.SelfHost]
 c) Filter Provider.
@@ -14,7 +14,7 @@ b) Message Handler.
 c) MongoDB 
 d) Authentication / Authorization
 
-How to access customer servie ?
+How to access customer service ?
 Get :
 http://localhost:50950/api/customer
 http://localhost:50950/api/customer/1
