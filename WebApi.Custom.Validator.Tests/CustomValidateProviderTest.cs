@@ -7,7 +7,7 @@ using WebApi.Domains;
 namespace WebApi.Custom.Validator.Tests
 {
     [TestFixture]
-    public class ValidateProviderTest : ValidateProvider
+    public class CustomValidateProviderTest : CustomValidateProvider
     {
         private Customer _customer;
 

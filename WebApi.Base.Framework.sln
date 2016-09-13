@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Owin.SelfHost", "Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Domains.MetaData", "WebApi.Domains.MetaData\WebApi.Domains.MetaData.csproj", "{9CF564D3-11CD-4574-A1E8-251D6388529C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Json.Utility", "WebApi.Json.Utility\WebApi.Json.Utility.csproj", "{7E46AA52-89E8-460E-91FE-EAC99A1A65CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{9CF564D3-11CD-4574-A1E8-251D6388529C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF564D3-11CD-4574-A1E8-251D6388529C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF564D3-11CD-4574-A1E8-251D6388529C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E46AA52-89E8-460E-91FE-EAC99A1A65CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E46AA52-89E8-460E-91FE-EAC99A1A65CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E46AA52-89E8-460E-91FE-EAC99A1A65CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E46AA52-89E8-460E-91FE-EAC99A1A65CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -239,5 +245,6 @@ Global
 		{EEF210C7-5FD1-4A5D-938C-3AE04AC504B8} = {765C2DB1-2BA3-4C67-9142-E4DEBC7612FD}
 		{9DDC4934-1FBC-48B2-9F21-14908F78BD4B} = {4003CFCE-3430-41A7-90C0-2BBD87D08CB4}
 		{9CF564D3-11CD-4574-A1E8-251D6388529C} = {BEE25DFA-83B9-438C-B093-5F0115582BDA}
+		{7E46AA52-89E8-460E-91FE-EAC99A1A65CC} = {765C2DB1-2BA3-4C67-9142-E4DEBC7612FD}
 	EndGlobalSection
 EndGlobal

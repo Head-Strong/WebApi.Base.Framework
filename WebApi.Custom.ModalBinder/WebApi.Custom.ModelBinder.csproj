@@ -52,11 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelBinderProvider.cs" />
+    <Compile Include="CustomerModelBinder.cs" />
+    <Compile Include="CustomModelBinderProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApi.Domains.MetaData\WebApi.Domains.MetaData.csproj">
+      <Project>{9CF564D3-11CD-4574-A1E8-251D6388529C}</Project>
+      <Name>WebApi.Domains.MetaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.Domains\WebApi.Domains.csproj">
+      <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
+      <Name>WebApi.Domains</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

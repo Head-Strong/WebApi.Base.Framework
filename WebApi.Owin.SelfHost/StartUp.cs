@@ -1,9 +1,11 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Filters;
+using System.Web.Http.ModelBinding;
 using System.Web.Http.Validation;
 using Owin;
 using WebApi.Custom.Filters;
+using WebApi.Custom.ModalBinder;
 using WebApi.Custom.Unity;
 using WebApi.Custom.Validator;
 
@@ -28,9 +30,11 @@ namespace WebApi.Owin.SelfHost
 
             RoutingSetup(config);
 
+            config.Services.Add(typeof(ModelBinderProvider), new CustomModelBinderProvider());
+
             config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
 
-            config.Services.Add(typeof(ModelValidatorProvider), new ValidateProvider());
+            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
 
             appBuilder.UseWebApi(config);
         }

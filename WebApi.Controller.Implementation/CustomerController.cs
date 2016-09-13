@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using WebApi.Controller.Interface;
+using WebApi.Custom.ModalBinder;
 using WebApi.Domains;
 using WebApi.Service.Interface;
 

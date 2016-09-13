@@ -8,11 +8,11 @@ using WebApi.Domains.MetaData;
 
 namespace WebApi.Custom.Validator
 {
-    public class ValidateProvider : DataAnnotationsModelValidatorProvider
+    public class CustomValidateProvider : DataAnnotationsModelValidatorProvider
     {
         private static readonly Dictionary<Type, Type> ModalValidatorsTypes = new Dictionary<Type, Type>();
 
-        static ValidateProvider()
+        static CustomValidateProvider()
         {
             ModalValidatorsTypes.Add(typeof(Customer), typeof(CustomerMetaData));
         }

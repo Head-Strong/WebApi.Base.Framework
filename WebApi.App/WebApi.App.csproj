@@ -153,6 +153,10 @@
       <Project>{9E23F5FD-479B-4FD2-A4B1-D6C9A3F6A199}</Project>
       <Name>WebApi.Custom.Filters</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApi.Custom.ModalBinder\WebApi.Custom.ModelBinder.csproj">
+      <Project>{D68CFA4D-27BF-4D72-8C43-D6D26594B084}</Project>
+      <Name>WebApi.Custom.ModelBinder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Custom.Unity\WebApi.Custom.Unity.csproj">
       <Project>{0F08045C-4C6F-4CE7-9508-3E6D0162C904}</Project>
       <Name>WebApi.Custom.Unity</Name>
