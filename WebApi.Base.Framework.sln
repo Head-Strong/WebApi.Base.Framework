@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi-Helpers", "WebApi-He
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{782B0DAE-EE53-4E8B-A86D-B307C93591E2}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\Aditya\Desktop\FiddlerRequest.saz = C:\Users\Aditya\Desktop\FiddlerRequest.saz
+		FiddlerRequest.saz = FiddlerRequest.saz
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi-Application", "WebApi-Application", "{4003CFCE-3430-41A7-90C0-2BBD87D08CB4}"
