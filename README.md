@@ -7,12 +7,17 @@ c) Filter Provider.
 d) Model Validator.
 f) In Memory Database.
 g) Unity IOC
+h) Model Binder
+i) Message Handler.
 
 Pending features : 
-a) Model Binder
-b) Message Handler.
-c) MongoDB 
-d) Authentication / Authorization
+a) MongoDB 
+b) Authentication / Authorization
+
+Request Header :
+content-type: application/json
+RequestHeader: adi
+
 
 How to access customer service ?
 Get :
@@ -21,6 +26,18 @@ http://localhost:50950/api/customer/1
 
 How to access Swagger ?
 http://localhost:50950/swagger/ui/index
+
+How to save customer ?
+
+Url : http://localhost:50950/api/customer/post
+
+Body :
+{
+      "Name":"XYZ",
+      "LastName":"ABC",
+      "Id":-1
+}
+
 
 
 How to setup owinself host application as Windows Service ?
