@@ -131,6 +131,10 @@
       <Project>{9E23F5FD-479B-4FD2-A4B1-D6C9A3F6A199}</Project>
       <Name>WebApi.Custom.Filters</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApi.Custom.MessageHandler\WebApi.Custom.MessageHandler.csproj">
+      <Project>{DA8E2F76-7CF2-46F4-870F-023C218301FB}</Project>
+      <Name>WebApi.Custom.MessageHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Custom.ModalBinder\WebApi.Custom.ModelBinder.csproj">
       <Project>{D68CFA4D-27BF-4D72-8C43-D6D26594B084}</Project>
       <Name>WebApi.Custom.ModelBinder</Name>

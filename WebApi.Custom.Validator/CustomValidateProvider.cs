@@ -22,7 +22,12 @@ namespace WebApi.Custom.Validator
             var typeDescriptor = base.GetTypeDescriptor(type);
 
             if (ModalValidatorsTypes.ContainsKey(type))
-                typeDescriptor = new AssociatedMetadataTypeTypeDescriptionProvider(type, ModalValidatorsTypes[type]).GetTypeDescriptor(type);
+            {
+                var associatedMetadataTypeTypeDescriptionProvider = 
+                    new AssociatedMetadataTypeTypeDescriptionProvider(type, ModalValidatorsTypes[type]);
+
+                typeDescriptor = associatedMetadataTypeTypeDescriptionProvider.GetTypeDescriptor(type);
+            }
 
             return typeDescriptor;
         }

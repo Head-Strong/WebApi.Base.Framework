@@ -47,7 +47,7 @@ namespace WebApi.Controller.Implementation
         /// <param name="customer"></param>
         /// <returns>Customer Details After Save</returns>
         [HttpPost]
-        public Customer Post(Customer customer)
+        public Customer Post([ModelBinder]Customer customer)
         {
             _customerService.SaveCustomer(customer);
 

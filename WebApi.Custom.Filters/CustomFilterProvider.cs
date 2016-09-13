@@ -51,12 +51,12 @@ namespace WebApi.Custom.Filters
         {
             RegisteredFilters = new Dictionary<RequestType, Type[]>
             {
-                //{
-                //    new RequestType("Customer","Get"), new[]
-                //    {
-                //        typeof(LoggingFilterAttribute)
-                //    }
-                //},
+                {
+                    new RequestType("Customer","Get"), new[]
+                    {
+                        typeof(LoggingFilterAttribute)
+                    }
+                },
                 {
                     new RequestType("Customer","Post"), new[]
                     {

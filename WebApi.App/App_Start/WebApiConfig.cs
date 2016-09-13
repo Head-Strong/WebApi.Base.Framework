@@ -1,9 +1,11 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.Validation;
 using WebApi.Custom.Filters;
+using WebApi.Custom.MessageHandler;
 using WebApi.Custom.ModalBinder;
 using WebApi.Custom.Unity;
 using WebApi.Custom.Validator;
@@ -29,11 +31,15 @@ namespace WebApi.App
 
             RoutingSetup(config);
 
-            config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
-
-            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
+            // var modelBinderProviders = config.Services.GetModelBinderProviders().ToList();
 
             config.Services.Add(typeof(ModelBinderProvider), new CustomModelBinderProvider());
+
+            config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
+
+            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());       
+            
+            config.MessageHandlers.Add(new CustomMessageHandler());     
         }
 
         /// <summary>

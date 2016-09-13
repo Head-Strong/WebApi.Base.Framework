@@ -5,5 +5,8 @@ namespace WebApi.Custom.Configuration
     public static class CustomConfigReader
     {
         public static string SelfHostUrl => ConfigurationManager.AppSettings[CustomKeys.SelfHostUrl];
+
+        public static string RequestHeaderValueInConfig
+            => ConfigurationManager.AppSettings[CustomKeys.RequestHeaderValueInConfig];
     }
 }

@@ -5,6 +5,7 @@ using System.Web.Http.ModelBinding;
 using System.Web.Http.Validation;
 using Owin;
 using WebApi.Custom.Filters;
+using WebApi.Custom.MessageHandler;
 using WebApi.Custom.ModalBinder;
 using WebApi.Custom.Unity;
 using WebApi.Custom.Validator;
@@ -35,6 +36,8 @@ namespace WebApi.Owin.SelfHost
             config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
 
             config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
+
+            config.MessageHandlers.Add(new CustomMessageHandler());
 
             appBuilder.UseWebApi(config);
         }
