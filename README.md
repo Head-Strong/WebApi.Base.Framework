@@ -6,9 +6,10 @@ b) Owin Self Hosting. [WebApi.Owin.SelfHost]
 c) Filter Provider.
 d) Model Validator.
 f) In Memory Database.
-g) Unity IOC
-h) Model Binder
+g) Unity IOC.
+h) Model Binder.
 i) Message Handler.
+j) Basic Authentication.
 
 Pending features : 
 a) MongoDB 
@@ -16,7 +17,7 @@ b) Authentication / Authorization
 
 Request Header :
 content-type: application/json
-RequestHeader: adi
+Authorization: YWRpdHlhOnRlc3Q=
 
 
 How to access customer service ?
@@ -37,7 +38,6 @@ Body :
       "LastName":"ABC",
       "Id":-1
 }
-
 
 
 How to setup owinself host application as Windows Service ?
