@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicAuthenticationMessageHandler.cs" />
     <Compile Include="CustomMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebApi.Common.Utility\WebApi.Common.Utility.csproj">
+      <Project>{5157C5C1-5AF4-4449-BF6E-F98CA42194D4}</Project>
+      <Name>WebApi.Common.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Custom.Configuration\WebApi.Custom.Configuration.csproj">
       <Project>{EEF210C7-5FD1-4A5D-938C-3AE04AC504B8}</Project>
       <Name>WebApi.Custom.Configuration</Name>

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
@@ -31,15 +30,13 @@ namespace WebApi.App
 
             RoutingSetup(config);
 
-            // var modelBinderProviders = config.Services.GetModelBinderProviders().ToList();
-
-            config.Services.Add(typeof(ModelBinderProvider), new CustomModelBinderProvider());
+            config.Services.Insert(typeof(ModelBinderProvider), 0, new CustomModelBinderProvider());
 
             config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
 
-            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());       
-            
-            config.MessageHandlers.Add(new CustomMessageHandler());     
+            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
+
+            config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());     
         }
 
         /// <summary>

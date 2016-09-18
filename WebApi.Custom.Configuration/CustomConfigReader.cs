@@ -8,5 +8,11 @@ namespace WebApi.Custom.Configuration
 
         public static string RequestHeaderValueInConfig
             => ConfigurationManager.AppSettings[CustomKeys.RequestHeaderValueInConfig];
+
+        public static string UserNameInConfig
+            => ConfigurationManager.AppSettings[CustomKeys.UserName];
+
+        public static string PasswordInConfig
+            => ConfigurationManager.AppSettings[CustomKeys.Password];
     }
 }

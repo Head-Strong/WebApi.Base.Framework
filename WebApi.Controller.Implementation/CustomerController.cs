@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using WebApi.Controller.Interface;
-using WebApi.Custom.ModalBinder;
 using WebApi.Domains;
+using WebApi.Dto;
 using WebApi.Service.Interface;
 
 namespace WebApi.Controller.Implementation
@@ -26,9 +28,10 @@ namespace WebApi.Controller.Implementation
         /// Get all Customers
         /// </summary>
         /// <returns>List of Customers</returns>
-        public IEnumerable<Customer> Get()
+        public IEnumerable<CustomerDto> Get()
         {
-            return _customerService.GetCustomers();
+            var customers = _customerService.GetCustomers();
+            return customers.Select(x => (CustomerDto)x);
         }
 
         /// <summary>
@@ -36,7 +39,7 @@ namespace WebApi.Controller.Implementation
         /// </summary>
         /// <param name="id">Customer Id, Type Int</param>
         /// <returns>Customer</returns>
-        public Customer Get(int id)
+        public CustomerDto Get(int id)
         {
             return _customerService.GetCustomers().FirstOrDefault(x => x.Id == id);
         }
@@ -47,7 +50,7 @@ namespace WebApi.Controller.Implementation
         /// <param name="customer"></param>
         /// <returns>Customer Details After Save</returns>
         [HttpPost]
-        public Customer Post([ModelBinder]Customer customer)
+        public CustomerDto Post([ModelBinder]Customer customer)
         {
             _customerService.SaveCustomer(customer);
 
@@ -62,6 +65,6 @@ namespace WebApi.Controller.Implementation
         public void Delete([FromBody]int id)
         {
             _customerService.DeleteCustomer(id);
-        }
+        }        
     }
 }

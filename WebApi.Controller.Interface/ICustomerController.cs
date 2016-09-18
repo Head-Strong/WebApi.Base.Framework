@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
 using WebApi.Domains;
+using WebApi.Dto;
 
 namespace WebApi.Controller.Interface
 {
     public interface ICustomerController
     {
-        IEnumerable<Customer> Get();
+        IEnumerable<CustomerDto> Get();
 
-        Customer Get(int id);
+        CustomerDto Get(int id);
+
+        CustomerDto Post(Customer customer);
+
+        void Delete(int id);
     }
 }

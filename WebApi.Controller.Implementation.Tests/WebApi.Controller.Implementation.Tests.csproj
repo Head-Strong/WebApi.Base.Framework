@@ -91,6 +91,10 @@
       <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
       <Name>WebApi.Domains</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApi.Dto\WebApi.Dto.csproj">
+      <Project>{9AA8FB32-9B24-4937-9463-F5A50BBD9B07}</Project>
+      <Name>WebApi.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Service.Interface\WebApi.Service.Interface.csproj">
       <Project>{8F1CA819-3F45-4B8A-B909-E7DF3E4B2A60}</Project>
       <Name>WebApi.Service.Interface</Name>

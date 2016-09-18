@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CredentialController.cs" />
     <Compile Include="CustomerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebApi.Common.Utility\WebApi.Common.Utility.csproj">
+      <Project>{5157C5C1-5AF4-4449-BF6E-F98CA42194D4}</Project>
+      <Name>WebApi.Common.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Controller.Interface\WebApi.Controller.Interface.csproj">
       <Project>{F2A0EB3D-CC47-4CB8-91FB-C6313FD1626F}</Project>
       <Name>WebApi.Controller.Interface</Name>
@@ -70,6 +75,10 @@
     <ProjectReference Include="..\WebApi.Domains\WebApi.Domains.csproj">
       <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
       <Name>WebApi.Domains</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.Dto\WebApi.Dto.csproj">
+      <Project>{9AA8FB32-9B24-4937-9463-F5A50BBD9B07}</Project>
+      <Name>WebApi.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi.Service.Interface\WebApi.Service.Interface.csproj">
       <Project>{8F1CA819-3F45-4B8A-B909-E7DF3E4B2A60}</Project>
