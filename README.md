@@ -53,6 +53,7 @@ Url : http://localhost:50950/api/customer/post
 Body :
 
 {
+
       "Name":"XYZ",
       
       "LastName":"ABC",
