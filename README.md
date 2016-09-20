@@ -1,6 +1,7 @@
 # WebApi.Base.Framework
 
 Following features are implemented :
+
 a) Swagger
 
 b) Owin Self Hosting. [WebApi.Owin.SelfHost]
@@ -14,24 +15,35 @@ f) In Memory Database.
 g) Unity IOC.
 
 h) Model Binder.
+
 i) Message Handler.
+
 j) Basic Authentication.
 
 Pending features : 
+
 a) MongoDB 
+
 b) Authentication / Authorization
 
 Request Header :
+
 content-type: application/json
+
 Authorization: YWRpdHlhOnRlc3Q=
 
 
 How to access customer service ?
+
 Get :
+
 http://localhost:50950/api/customer
+
 http://localhost:50950/api/customer/1
 
+
 How to access Swagger ?
+
 http://localhost:50950/swagger/ui/index
 
 How to save customer ?
