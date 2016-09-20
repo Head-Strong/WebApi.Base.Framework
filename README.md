@@ -2,11 +2,17 @@
 
 Following features are implemented :
 a) Swagger
+
 b) Owin Self Hosting. [WebApi.Owin.SelfHost]
+
 c) Filter Provider.
+
 d) Model Validator.
+
 f) In Memory Database.
+
 g) Unity IOC.
+
 h) Model Binder.
 i) Message Handler.
 j) Basic Authentication.
