@@ -51,10 +51,14 @@ How to save customer ?
 Url : http://localhost:50950/api/customer/post
 
 Body :
+
 {
       "Name":"XYZ",
+      
       "LastName":"ABC",
+      
       "Id":-1
+      
 }
 
 
