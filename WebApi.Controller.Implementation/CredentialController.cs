@@ -6,12 +6,23 @@ namespace WebApi.Controller.Implementation
 {
     public class CredentialController : ApiController, ICredentialController
     {
-        public string EncodedCredentials(string username, string password)
+        /// <summary>
+        /// Base 64 Encode.
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>Encoded String Username:Password</returns>
+        public string Get(string username, string password)
         {
             return CredentialManager.EncodedCredentials(username, password);
         }
 
-        public string DecodeCredentials(string credential)
+        /// <summary>
+        /// Decode of Credential
+        /// </summary>
+        /// <param name="credential">Encoded String</param>
+        /// <returns>Decoded String</returns>
+        public string Get(string credential)
         {
             return CredentialManager.DecodeCredentials(credential);
         }

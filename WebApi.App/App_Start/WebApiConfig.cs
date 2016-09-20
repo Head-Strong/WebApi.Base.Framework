@@ -36,7 +36,9 @@ namespace WebApi.App
 
             config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
 
-            config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());     
+            config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
+
+            SwaggerConfig.Register();
         }
 
         /// <summary>
@@ -48,11 +50,11 @@ namespace WebApi.App
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultActionApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-                );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultActionApi",
+            //    routeTemplate: "api/{controller}/{action}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //    );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

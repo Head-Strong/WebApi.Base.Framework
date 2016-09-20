@@ -2,8 +2,8 @@
 {
     public interface ICredentialController
     {
-        string EncodedCredentials(string username, string password);
+        string Get(string username, string password);
 
-        string DecodeCredentials(string credential);       
+        string Get(string credential);
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using WebApi.Controller.Interface;
@@ -34,14 +32,15 @@ namespace WebApi.Controller.Implementation
             return customers.Select(x => (CustomerDto)x);
         }
 
-        /// <summary>
-        /// Get Customer By Id.
-        /// </summary>
-        /// <param name="id">Customer Id, Type Int</param>
-        /// <returns>Customer</returns>
+        ///// <summary>
+        ///// Get Customer By Id.
+        ///// </summary>
+        ///// <param name="id">Customer Id, Type Int</param>
+        ///// <returns>Customer</returns>
         public CustomerDto Get(int id)
         {
-            return _customerService.GetCustomers().FirstOrDefault(x => x.Id == id);
+            var customer = _customerService.GetCustomers().FirstOrDefault(x => x.Id == id);
+            return customer;
         }
 
         /// <summary>
@@ -61,10 +60,10 @@ namespace WebApi.Controller.Implementation
         /// Delete Customer
         /// </summary>
         /// <param name="id">Customer Id</param>
-        [HttpPost]
-        public void Delete([FromBody]int id)
+        //[HttpDelete]
+        public void Delete(int id)
         {
             _customerService.DeleteCustomer(id);
-        }        
+        }
     }
 }
