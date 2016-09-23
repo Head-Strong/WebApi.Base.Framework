@@ -104,10 +104,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApi.Client.WebApp\WebApi.Client.WebApp.csproj">
-      <Project>{BCE1E1DD-0B5F-4252-B915-0C368C9A0076}</Project>
-      <Name>WebApi.Client.WebApp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebApi.Controller.Implementation\WebApi.Controller.Implementation.csproj">
       <Project>{008b5bb9-eaef-4e51-a631-7651bf782436}</Project>
       <Name>WebApi.Controller.Implementation</Name>

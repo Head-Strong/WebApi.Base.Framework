@@ -43,12 +43,6 @@
     <Compile Include="CustomerDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebApi.Domains\WebApi.Domains.csproj">
-      <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
-      <Name>WebApi.Domains</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

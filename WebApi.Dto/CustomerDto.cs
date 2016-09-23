@@ -1,6 +1,4 @@
-﻿using WebApi.Domains;
-
-namespace WebApi.Dto
+﻿namespace WebApi.Dto
 {
     public class CustomerDto
     {
@@ -9,16 +7,6 @@ namespace WebApi.Dto
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        public static implicit operator CustomerDto(Customer customer)
-        {
-            return new CustomerDto
-            {
-                FirstName = customer.Name,
-                Id = customer.Id,
-                LastName = customer.LastName
-            };
-        }
 
         //public static implicit operator Customer(CustomerDto customerDto)
         //{

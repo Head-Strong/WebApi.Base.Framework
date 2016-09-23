@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
+using WebApi.Controller.Implementation.Translator;
 using WebApi.Controller.Interface;
 using WebApi.Domains;
 using WebApi.Dto;
@@ -29,7 +29,7 @@ namespace WebApi.Controller.Implementation
         public IEnumerable<CustomerDto> Get()
         {
             var customers = _customerService.GetCustomers();
-            return customers.Select(x => (CustomerDto)x);
+            return customers.Select(x => CustomerTranslator.Translate(x));
         }
 
         ///// <summary>
@@ -40,7 +40,7 @@ namespace WebApi.Controller.Implementation
         public CustomerDto Get(int id)
         {
             var customer = _customerService.GetCustomers().FirstOrDefault(x => x.Id == id);
-            return customer;
+            return CustomerTranslator.Translate(customer);
         }
 
         /// <summary>
@@ -49,11 +49,11 @@ namespace WebApi.Controller.Implementation
         /// <param name="customer"></param>
         /// <returns>Customer Details After Save</returns>
         [HttpPost]
-        public CustomerDto Post([ModelBinder]Customer customer)
+        public CustomerDto Post(Customer customer)
         {
             _customerService.SaveCustomer(customer);
 
-            return customer;
+            return CustomerTranslator.Translate(customer);
         }
 
         /// <summary>

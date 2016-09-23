@@ -100,6 +100,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Common.Utility", "We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Common.Utility.Test", "WebApi.Common.Utility.Test\WebApi.Common.Utility.Test.csproj", "{CA74AA63-66F3-44FA-94FD-784FF523EA02}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Docs", "01_Docs", "{1378AF85-5A0D-45AF-AC31-0EDE0123FBD7}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies Graph.png = Dependencies Graph.png
+		FiddlerRequest.saz = FiddlerRequest.saz
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

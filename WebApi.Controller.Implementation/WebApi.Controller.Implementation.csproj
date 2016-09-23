@@ -55,6 +55,7 @@
     <Compile Include="CredentialController.cs" />
     <Compile Include="CustomerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translator\CustomerTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,10 +68,6 @@
     <ProjectReference Include="..\WebApi.Controller.Interface\WebApi.Controller.Interface.csproj">
       <Project>{F2A0EB3D-CC47-4CB8-91FB-C6313FD1626F}</Project>
       <Name>WebApi.Controller.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebApi.Custom.ModalBinder\WebApi.Custom.ModelBinder.csproj">
-      <Project>{D68CFA4D-27BF-4D72-8C43-D6D26594B084}</Project>
-      <Name>WebApi.Custom.ModelBinder</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi.Domains\WebApi.Domains.csproj">
       <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
