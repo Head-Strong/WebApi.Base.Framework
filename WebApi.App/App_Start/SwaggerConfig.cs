@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Swashbuckle.Application;
-using WebApi.App;
 
 //[assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 

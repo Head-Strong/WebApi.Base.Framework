@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using WebApi.Controller.Implementation.Translator;
 using WebApi.Controller.Interface;
 using WebApi.Domains;
@@ -49,7 +50,7 @@ namespace WebApi.Controller.Implementation
         /// <param name="customer"></param>
         /// <returns>Customer Details After Save</returns>
         [HttpPost]
-        public CustomerDto Post(Customer customer)
+        public CustomerDto Post([ModelBinder]Customer customer)
         {
             _customerService.SaveCustomer(customer);
 

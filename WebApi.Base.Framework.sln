@@ -107,6 +107,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Docs", "01_Docs", "{1378
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TokenServer-Infrastructure", "TokenServer-Infrastructure", "{7AD31090-31A6-47D8-9206-723E1FF39423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthTokenServerService", "OAuthTokenServerService\OAuthTokenServerService.csproj", "{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +241,10 @@ Global
 		{CA74AA63-66F3-44FA-94FD-784FF523EA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA74AA63-66F3-44FA-94FD-784FF523EA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA74AA63-66F3-44FA-94FD-784FF523EA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,5 +287,6 @@ Global
 		{9AA8FB32-9B24-4937-9463-F5A50BBD9B07} = {39112E2B-1A07-4788-9B42-8A8D378B094B}
 		{5157C5C1-5AF4-4449-BF6E-F98CA42194D4} = {765C2DB1-2BA3-4C67-9142-E4DEBC7612FD}
 		{CA74AA63-66F3-44FA-94FD-784FF523EA02} = {28F8D26F-3D3A-46C4-840B-4D6BBFA3AD38}
+		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B} = {7AD31090-31A6-47D8-9206-723E1FF39423}
 	EndGlobalSection
 EndGlobal

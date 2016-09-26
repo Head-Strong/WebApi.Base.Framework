@@ -35,7 +35,7 @@ namespace WebApi.Owin.SelfHost
 
             config.Services.Add(typeof(IFilterProvider), new CustomFilterProvider());
 
-            config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
+            // config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
 
             config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
 
