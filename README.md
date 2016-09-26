@@ -41,6 +41,16 @@ http://localhost:50950/api/customer
 
 http://localhost:50950/api/customer/1
 
+Async Methods : 
+
+GET:  http://localhost:50950/api/customer/async
+
+GET:  http://localhost:50950/api/customer/async/1
+
+POST: http://localhost:50950/api/customer/async
+
+DELETE: http://localhost:50950/api/customer/async/1
+
 
 How to access Swagger ?
 
