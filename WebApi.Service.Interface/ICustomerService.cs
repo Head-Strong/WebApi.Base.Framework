@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApi.Domains;
 
 namespace WebApi.Service.Interface
@@ -10,5 +11,11 @@ namespace WebApi.Service.Interface
         IEnumerable<Customer> GetCustomers();
 
         void DeleteCustomer(int id);
+
+        Task<Customer> SaveCustomerAsync(Customer customer);
+
+        Task<IEnumerable<Customer>> GetCustomersAsync();
+
+        Task DeleteCustomerAsync(int id);
     }
 }

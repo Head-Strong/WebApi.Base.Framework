@@ -1,15 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.Domains
 {
-    public class BaseRequest
+    public interface IBaseRequest : IValidatableObject
     {
-        public int Id { get; set; }
+        int Id { get; set; }
         
-        public DateTime RequestTime { get; set; }
+        DateTime RequestTime { get; set; }
 
-        public string ClientIpAddress { get; set; }
+        string ClientIpAddress { get; set; }
 
-        public string UserAgent { get; set; }
+        string UserAgent { get; set; }
     }
 }

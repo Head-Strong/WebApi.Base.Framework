@@ -62,6 +62,12 @@ namespace WebApi.Custom.Filters
                     {
                         typeof(ValidateModelFilterAttribute)
                     }
+                },
+                {
+                    new RequestType("Customer","PostAsync"), new[]
+                    {
+                        typeof(ValidateModelFilterAttribute)
+                    }
                 }
             };
         }

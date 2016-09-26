@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http.ModelBinding;
+using System.Threading.Tasks;
 using WebApi.Domains;
 using WebApi.Repository.Interface;
 using WebApi.Service.Interface;
@@ -16,7 +15,7 @@ namespace WebApi.Service.Implementation
             _customerRepository = customerRepository;
         }
 
-
+        #region Sync Calls
         public Customer SaveCustomer(Customer customer)
         {
             var savedCustomer = _customerRepository.SaveEntity(customer);
@@ -33,5 +32,25 @@ namespace WebApi.Service.Implementation
         {
             _customerRepository.DeleteEntity(id);
         }
+        #endregion
+
+        #region Async Calls
+        public async Task<Customer> SaveCustomerAsync(Customer customer)
+        {
+            var savedCustomer = await _customerRepository.SaveEntityAsync(customer);
+
+            return savedCustomer;
+        }
+
+        public async Task<IEnumerable<Customer>> GetCustomersAsync()
+        {
+            return await _customerRepository.GetEntitiesAsync();
+        }
+
+        public async Task DeleteCustomerAsync(int id)
+        {
+            await _customerRepository.DeleteEntityAsync(id);
+        }
+        #endregion
     }
 }

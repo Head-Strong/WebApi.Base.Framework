@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using WebApi.Controller.Implementation.Translator;
@@ -14,6 +15,7 @@ namespace WebApi.Controller.Implementation
     {
         private readonly ICustomerService _customerService;
 
+        #region Synchronize Calls
         /// <summary>
         /// 
         /// </summary>
@@ -30,7 +32,7 @@ namespace WebApi.Controller.Implementation
         public IEnumerable<CustomerDto> Get()
         {
             var customers = _customerService.GetCustomers();
-            return customers.Select(x => CustomerTranslator.Translate(x));
+            return customers.Select(CustomerTranslator.Translate);
         }
 
         ///// <summary>
@@ -61,10 +63,63 @@ namespace WebApi.Controller.Implementation
         /// Delete Customer
         /// </summary>
         /// <param name="id">Customer Id</param>
-        //[HttpDelete]
         public void Delete(int id)
         {
             _customerService.DeleteCustomer(id);
         }
+        #endregion
+
+        #region Async Calls
+        /// <summary>
+        /// Get Customers Async
+        /// </summary>
+        /// <returns>Return Customers</returns>
+        [Route("api/customer/async")]
+        public async Task<IEnumerable<CustomerDto>> GetAsync()
+        {
+            var customers = await _customerService.GetCustomersAsync();
+            return customers.Select(CustomerTranslator.Translate);
+        }
+
+        /// <summary>
+        /// Get Customer ById Async
+        /// </summary>
+        /// <param name="id">Customer Id</param>
+        /// <returns></returns>
+        [Route("api/customer/async/{id}")]
+        public async Task<CustomerDto> GetAsync(int id)
+        {
+            var customerResult = await _customerService.GetCustomersAsync();
+
+            var customer = customerResult.FirstOrDefault(x => x.Id == id);
+
+            return CustomerTranslator.Translate(customer);
+        }
+
+        /// <summary>
+        /// Save Customer Async
+        /// </summary>
+        /// <param name="customer">Customer Details</param>
+        /// <returns>Customer Saved and Customer Object Has Id</returns>
+        [HttpPost]
+        [Route("api/customer/async")]
+        public async Task<CustomerDto> PostAsync([ModelBinder]Customer customer)
+        {
+            await _customerService.SaveCustomerAsync(customer);
+
+            return CustomerTranslator.Translate(customer);
+        }
+
+        /// <summary>
+        /// Delete Customer Async By Id
+        /// </summary>
+        /// <param name="id">Customer Id</param>
+        /// <returns></returns>
+        [Route("api/customer/async/{id}")]
+        public async Task DeleteAsync(int id)
+        {
+            await _customerService.DeleteCustomerAsync(id);
+        }
+        #endregion
     }
 }

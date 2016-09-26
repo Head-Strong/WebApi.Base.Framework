@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WebApi.Domains;
 using WebApi.Repository.Interface;
 
@@ -17,6 +18,7 @@ namespace WebApi.Repository.Implementation
             }
         }
 
+        #region Sync methods
         public Customer SaveEntity(Customer entity)
         {
             var maxId = _customers.Max(x => x.Id);
@@ -39,6 +41,36 @@ namespace WebApi.Repository.Implementation
 
             _customers.Remove(customer);
         }
+        #endregion
+
+        #region Async Methods
+        public async Task<Customer> SaveEntityAsync(Customer entity)
+        {
+            var maxId = await Task.Run(() => _customers.Max(x => x.Id));
+
+            entity.Id = maxId + 1;
+
+            _customers.Add(entity);
+
+            return entity;
+        }
+
+        public async Task<IEnumerable<Customer>> GetEntitiesAsync()
+        {
+            return await Task.Run(() => _customers);
+        }
+
+        public async Task DeleteEntityAsync(int id)
+        {
+            var allCustomers = await Task.Run(() => _customers);
+
+            var customer = allCustomers.First(x => x.Id == id);
+
+            _customers.Remove(customer);
+        }
+        #endregion 
+
+        #region Private Methods
 
         private static IEnumerable<Customer> GetCustomers()
         {
@@ -79,5 +111,7 @@ namespace WebApi.Repository.Implementation
 
             return _customers;
         }
+
+        #endregion
     }
 }
