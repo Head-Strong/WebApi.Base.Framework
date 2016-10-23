@@ -20,6 +20,8 @@ i) Message Handler.
 
 j) Basic Authentication.
 
+k) Identity Server 3 Setup is done.
+
 Pending features : 
 
 a) MongoDB 
@@ -71,6 +73,15 @@ Body :
       "Id":-1
       
 }
+
+
+OAuth2 Identity Server Settings : 
+---------------------------------
+ClientId : oauth2_api
+ClientSecret : oauth2apiservicessecret
+Username : aditya
+Password : test
+
 
 
 How to setup owinself host application as Windows Service ?
