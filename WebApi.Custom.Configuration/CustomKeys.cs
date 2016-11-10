@@ -6,5 +6,6 @@ namespace WebApi.Custom.Configuration
         public const string RequestHeaderValueInConfig = "RequestHeaderValue";
         public const string UserName = "UserName";
         public const string Password = "Password";
+        public const string AuthenticationServerUrl = "AuthenticationServerUrl";
     }
 }

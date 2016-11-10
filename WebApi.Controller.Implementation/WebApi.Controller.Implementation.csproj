@@ -70,6 +70,10 @@
       <Project>{F2A0EB3D-CC47-4CB8-91FB-C6313FD1626F}</Project>
       <Name>WebApi.Controller.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApi.Custom.Filters\WebApi.Custom.Filters.csproj">
+      <Project>{9E23F5FD-479B-4FD2-A4B1-D6C9A3F6A199}</Project>
+      <Name>WebApi.Custom.Filters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApi.Domains\WebApi.Domains.csproj">
       <Project>{4A2F1514-D61C-4953-9308-6FE0A45B2A82}</Project>
       <Name>WebApi.Domains</Name>

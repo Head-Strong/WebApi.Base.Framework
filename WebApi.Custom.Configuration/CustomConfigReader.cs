@@ -14,5 +14,8 @@ namespace WebApi.Custom.Configuration
 
         public static string PasswordInConfig
             => ConfigurationManager.AppSettings[CustomKeys.Password];
+
+        public static string AuthenticationServerUrl
+            => ConfigurationManager.AppSettings[CustomKeys.AuthenticationServerUrl];
     }
 }

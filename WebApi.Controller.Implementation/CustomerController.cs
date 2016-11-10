@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using WebApi.Controller.Implementation.Translator;
 using WebApi.Controller.Interface;
+using WebApi.Custom.Filters;
 using WebApi.Domains;
 using WebApi.Dto;
 using WebApi.Service.Interface;

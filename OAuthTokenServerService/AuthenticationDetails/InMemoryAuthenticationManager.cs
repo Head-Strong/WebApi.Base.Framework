@@ -3,6 +3,7 @@ using IdentityServer3.Core;
 using IdentityServer3.Core.Models;
 using IdentityServer3.Core.Services.InMemory;
 using System.Configuration;
+using System.Security.Claims;
 
 namespace OAuthTokenServerService.AuthenticationDetails
 {
@@ -34,19 +35,7 @@ namespace OAuthTokenServerService.AuthenticationDetails
             {
                 new Scope
                 {
-                     Name = "Read",
-                     DisplayName = "Read User Data",
-                     //Required = true,
-                     //IncludeAllClaimsForUser = true,
-                     //Claims = new List<ScopeClaim>()
-                     //{
-                     //    new ScopeClaim
-                     //    {
-                     //        Name = "Read",
-                     //        AlwaysIncludeInIdToken = true,
-                     //        Description = "Read Data"
-                     //    }
-                     //}
+                     Name = "Read",                    
                 },
                 StandardScopes.OpenId,
                 StandardScopes.Profile,
@@ -78,7 +67,7 @@ namespace OAuthTokenServerService.AuthenticationDetails
                     Constants.StandardScopes.OpenId,
                     Constants.StandardScopes.Profile,
                     "Read"
-                }
+                }               
             };
         }
 

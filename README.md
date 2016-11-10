@@ -75,12 +75,16 @@ Body :
 }
 
 
+Url : http://localhost:2020/connect/token
+
 OAuth2 Identity Server Settings : 
 ---------------------------------
-ClientId : oauth2_api
-ClientSecret : oauth2apiservicessecret
-Username : aditya
-Password : test
+client_id : oauth2_api
+client_secret : oauth2apiservicessecret
+grant_type : password
+scope : openid
+username : aditya
+password : test
 
 
 
