@@ -111,6 +111,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TokenServer-Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthTokenServerService", "OAuthTokenServerService\OAuthTokenServerService.csproj", "{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Integration.Test", "Console.Integration.Test\Console.Integration.Test.csproj", "{56739C4C-EF2D-49FB-844C-B7FFB63C9D50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -245,6 +247,10 @@ Global
 		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56739C4C-EF2D-49FB-844C-B7FFB63C9D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56739C4C-EF2D-49FB-844C-B7FFB63C9D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56739C4C-EF2D-49FB-844C-B7FFB63C9D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56739C4C-EF2D-49FB-844C-B7FFB63C9D50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,5 +294,6 @@ Global
 		{5157C5C1-5AF4-4449-BF6E-F98CA42194D4} = {765C2DB1-2BA3-4C67-9142-E4DEBC7612FD}
 		{CA74AA63-66F3-44FA-94FD-784FF523EA02} = {28F8D26F-3D3A-46C4-840B-4D6BBFA3AD38}
 		{EB01A47A-1C7C-4C0D-9901-CEB1A334A96B} = {7AD31090-31A6-47D8-9206-723E1FF39423}
+		{56739C4C-EF2D-49FB-844C-B7FFB63C9D50} = {28F8D26F-3D3A-46C4-840B-4D6BBFA3AD38}
 	EndGlobalSection
 EndGlobal

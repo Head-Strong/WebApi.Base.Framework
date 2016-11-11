@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using WebApi.Common.Utility;
 using WebApi.Domains;
 
@@ -47,9 +48,16 @@ namespace WebApi.Custom.MessageHandler
 
         private static void SetUserDetails(User user)
         {
-            var currentPrincipal = new GenericPrincipal(new GenericIdentity(user.UserName), user.Roles);
+            var genericIdentity = new GenericIdentity(user.UserName);
+
+            var currentPrincipal = new GenericPrincipal(genericIdentity, user.Roles);
 
             Thread.CurrentPrincipal = currentPrincipal;
+
+            if(HttpContext.Current != null)
+            {
+                HttpContext.Current.User = currentPrincipal;
+            }
         }
 
         private static HttpResponseMessage PrepareUnAuthorizedResponseMessage()

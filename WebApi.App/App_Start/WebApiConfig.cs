@@ -2,10 +2,7 @@
 using System.Web.Http.Cors;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
-using Microsoft.Owin;
-using Microsoft.Owin.Hosting;
 using WebApi.Custom.Filters;
-using WebApi.Custom.MessageHandler;
 using WebApi.Custom.ModalBinder;
 using WebApi.Custom.Unity;
 
@@ -36,7 +33,7 @@ namespace WebApi.App
 
             //config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
 
-            config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
+            //config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
 
             SwaggerConfig.Register();
 

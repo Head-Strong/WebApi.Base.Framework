@@ -4,7 +4,6 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using WebApi.Common.Utility;
 
 namespace WebApi.Custom.Filters
 {
@@ -76,32 +75,33 @@ namespace WebApi.Custom.Filters
                     new RequestType("Customer","Get"), new[]
                     {
                        new CustomType(typeof(LoggingFilterAttribute)),
-                       new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                                        new List<string> { Roles.Read.ToString()}),
+                       new CustomType(typeof(IdentityAuthorizeAttribute))
+                       //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
+                       //                 new List<string> { Roles.Read.ToString()}),
                     }
                 },
                 {
                     new RequestType("Customer","Post"), new[]
                     {
                         new CustomType(typeof(ValidateModelFilterAttribute)),
-                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                                        new List<string> {Roles.Write.ToString()}),
+                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
+                        //                new List<string> {Roles.Write.ToString()}),
                     }
                 },
                 {
                     new RequestType("Customer","Delete"), new[]
                     {
                         new CustomType(typeof(ValidateModelFilterAttribute)),
-                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                                        new List<string> {Roles.Delete.ToString()}),
+                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
+                        //                new List<string> {Roles.Delete.ToString()}),
                     }
                 },
                 {
                     new RequestType("Customer","PostAsync"), new[]
                     {
                         new CustomType( typeof(ValidateModelFilterAttribute)),
-                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                                        new List<string> {Roles.Write.ToString()}),
+                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
+                        //                new List<string> {Roles.Write.ToString()}),
                     }
                 }
             };
