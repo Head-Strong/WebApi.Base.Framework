@@ -9,28 +9,20 @@ using System.Web.Http.Filters;
 
 namespace WebApi.Custom.Filters
 {
-    public class BasicAuthenticationAuthorizeAttribute : AuthorizeAttribute
+    public class BasicAuthenticationAuthorizeAttribute : BaseAuthorizeAttribute
     {
-        private readonly List<string> _roles;
-
-        public BasicAuthenticationAuthorizeAttribute(List<string> roles)
+        public BasicAuthenticationAuthorizeAttribute(List<string> roles) : base(roles)
         {
-            _roles = roles;
         }
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            var roleFound = _roles.Select(role => Thread.CurrentPrincipal.IsInRole(role)).Any(checkAuthorization => checkAuthorization);
+            var roleFound = roles.Select(role => Thread.CurrentPrincipal.IsInRole(role)).Any(checkAuthorization => checkAuthorization);
 
             if (!roleFound)
             {
                 UnauthorizedAccess(actionContext);
             }
-        }
-
-        private static void UnauthorizedAccess(HttpActionContext context)
-        {
-            context.Response = context.Request.CreateResponse(HttpStatusCode.Forbidden);
         }
     }
 }

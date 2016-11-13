@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace WebApi.Custom.Configuration
 {
@@ -17,5 +18,8 @@ namespace WebApi.Custom.Configuration
 
         public static string AuthenticationServerUrl
             => ConfigurationManager.AppSettings[CustomKeys.AuthenticationServerUrl];
+
+        public static bool BasicAuthenticationToggle
+           => Convert.ToBoolean(ConfigurationManager.AppSettings[CustomKeys.BasicAndOAuthAuthenticationToggle]);
     }
 }

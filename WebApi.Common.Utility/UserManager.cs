@@ -16,22 +16,22 @@ namespace WebApi.Common.Utility
                     EmailId = "adi***.***@gmail.com",
                     FirstName = "All",
                     Id = 1,
-                    LastName = "Roles",
+                    LastName = "Claims",
                     Password = "test",
                     PhoneNumber = "345-678-1234",
-                    Roles = new [] {Roles.Read.ToString(), Roles.Write.ToString(), Roles.Delete.ToString()},
+                    Claims = new [] {Claims.CustomerRead.ToString(), Claims.CustomerWrite.ToString(), Claims.CustomerDelete.ToString()},
                     UserName = "aditya",
                     EncodedCredential = "YWRpdHlhOnRlc3Q="
                 },
                 new User
                 {
                     EmailId = "test***.***@gmail.com",
-                    FirstName = "Read",
+                    FirstName = "CustomerRead",
                     Id = 2,
-                    LastName = "Roles Only",
+                    LastName = "Claims Only",
                     Password = "test1",
                     PhoneNumber = "123-456-7890",
-                    Roles = new [] {Roles.Read.ToString()},
+                    Claims = new [] {Claims.CustomerRead.ToString()},
                     UserName = "aditya1",
                     EncodedCredential = "YWRpdHlhOnRlc3Q#"
                 }

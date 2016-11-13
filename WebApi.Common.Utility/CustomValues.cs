@@ -1,9 +1,9 @@
 ﻿namespace WebApi.Common.Utility
 {
-    public enum Roles
+    public enum Claims
     {
-        Read,
-        Write,
-        Delete
+        CustomerRead,
+        CustomerWrite,
+        CustomerDelete
     }
 }

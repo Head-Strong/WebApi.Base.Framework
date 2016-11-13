@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseAuthorizeAttribute.cs" />
     <Compile Include="BasicAuthenticationAuthorizeAttribute.cs" />
     <Compile Include="CustomFilterProvider.cs" />
     <Compile Include="IdentityAuthorizeAttribute.cs" />
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\WebApi.Common.Utility\WebApi.Common.Utility.csproj">
       <Project>{5157c5c1-5af4-4449-bf6e-f98ca42194d4}</Project>
       <Name>WebApi.Common.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.Custom.Configuration\WebApi.Custom.Configuration.csproj">
+      <Project>{EEF210C7-5FD1-4A5D-938C-3AE04AC504B8}</Project>
+      <Name>WebApi.Custom.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

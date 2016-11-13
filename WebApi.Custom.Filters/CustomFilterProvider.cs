@@ -4,12 +4,14 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+using WebApi.Common.Utility;
+using WebApi.Custom.Configuration;
 
 namespace WebApi.Custom.Filters
 {
     public class CustomFilterProvider : IFilterProvider
     {
-        private static readonly Dictionary<RequestType, CustomType[]> RegisteredFilters;
+        private static Dictionary<RequestType, CustomType[]> _registeredFilters;
 
         #region Custom Type
         private class CustomType
@@ -69,44 +71,16 @@ namespace WebApi.Custom.Filters
 
         static CustomFilterProvider()
         {
-            RegisteredFilters = new Dictionary<RequestType, CustomType[]>
+            if (CustomConfigReader.BasicAuthenticationToggle)
             {
-                {
-                    new RequestType("Customer","Get"), new[]
-                    {
-                       new CustomType(typeof(LoggingFilterAttribute)),
-                       new CustomType(typeof(IdentityAuthorizeAttribute))
-                       //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                       //                 new List<string> { Roles.Read.ToString()}),
-                    }
-                },
-                {
-                    new RequestType("Customer","Post"), new[]
-                    {
-                        new CustomType(typeof(ValidateModelFilterAttribute)),
-                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                        //                new List<string> {Roles.Write.ToString()}),
-                    }
-                },
-                {
-                    new RequestType("Customer","Delete"), new[]
-                    {
-                        new CustomType(typeof(ValidateModelFilterAttribute)),
-                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                        //                new List<string> {Roles.Delete.ToString()}),
-                    }
-                },
-                {
-                    new RequestType("Customer","PostAsync"), new[]
-                    {
-                        new CustomType( typeof(ValidateModelFilterAttribute)),
-                        //new CustomType(typeof(BasicAuthenticationAuthorizeAttribute),
-                        //                new List<string> {Roles.Write.ToString()}),
-                    }
-                }
-            };
+                BasicAuthenticationFilter();
+            }
+            else
+            {
+                OAuthAuthenticationFilter();
+            }
         }
-
+        
         public IEnumerable<FilterInfo> GetFilters(HttpConfiguration configuration, HttpActionDescriptor actionDescriptor)
         {
             var actionName = actionDescriptor.ActionName;
@@ -114,11 +88,11 @@ namespace WebApi.Custom.Filters
 
             var requestType = new RequestType(controllerName, actionName);
 
-            var isValidAction = RegisteredFilters.ContainsKey(requestType);
+            var isValidAction = _registeredFilters.ContainsKey(requestType);
 
             if (!isValidAction) yield break;
 
-            var registeredFilters = RegisteredFilters[requestType];
+            var registeredFilters = _registeredFilters[requestType];
 
             foreach (var registeredFilter in registeredFilters)
             {
@@ -141,5 +115,78 @@ namespace WebApi.Custom.Filters
                 }
             }
         }
+
+        #region
+        private static void BasicAuthenticationFilter()
+        {
+            _registeredFilters = new Dictionary<RequestType, CustomType[]>
+            {
+                {
+                    new RequestType("Customer", "Get"), new[]
+                    {
+                        new CustomType(typeof (LoggingFilterAttribute)),
+                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute), new List<string> { Claims.CustomerRead.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "Post"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute), new List<string> {Claims.CustomerWrite.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "CustomerDelete"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute), new List<string> {Claims.CustomerDelete.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "PostAsync"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof(BasicAuthenticationAuthorizeAttribute), new List<string> {Claims.CustomerWrite.ToString()})
+                    }
+                }
+            };
+        }
+
+        private static void OAuthAuthenticationFilter()
+        {
+            _registeredFilters = new Dictionary<RequestType, CustomType[]>
+            {
+                {
+                    new RequestType("Customer", "Get"), new[]
+                    {
+                        new CustomType(typeof (LoggingFilterAttribute)),
+                        new CustomType(typeof (IdentityAuthorizeAttribute), new List<string> {Claims.CustomerRead.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "Post"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof (IdentityAuthorizeAttribute), new List<string> {Claims.CustomerWrite.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "CustomerDelete"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof (IdentityAuthorizeAttribute), new List<string> {Claims.CustomerDelete.ToString()})
+                    }
+                },
+                {
+                    new RequestType("Customer", "PostAsync"), new[]
+                    {
+                        new CustomType(typeof (ValidateModelFilterAttribute)),
+                        new CustomType(typeof (IdentityAuthorizeAttribute), new List<string> {Claims.CustomerWrite.ToString()})
+                    }
+                }
+            };
+        }
+
+        #endregion
     }
 }

@@ -19,28 +19,36 @@ namespace OAuthTokenServerService.AuthenticationDetails
                     Username = "aditya",
                     Password = "test",
                     Subject = "Aditya",
-                    Claims = new List<System.Security.Claims.Claim>
+                    Claims = new List<Claim>
                     {
-                        new System.Security.Claims.Claim(Constants.ClaimTypes.Email, "aditya.magotra@gmail.com"),
-                        new System.Security.Claims.Claim(Constants.ClaimTypes.Name, "Aditya"),
-                        new System.Security.Claims.Claim(Constants.ClaimTypes.Role, "Read")
-                    }
+                        new Claim(Constants.ClaimTypes.Email, "aditya.magotra@gmail.com"),
+                        new Claim(Constants.ClaimTypes.Name, "Aditya"),
+                        new Claim(Constants.ClaimTypes.Role, "CustomerRead"),
+                        new Claim(Constants.ClaimTypes.Role, "CustomerWrite")
+                    }                    
                 }
             };
         }
 
         public List<Scope> GetScopes()
         {
-            return new List<Scope>
+            var scopes = new List<Scope>
             {
                 new Scope
                 {
-                     Name = "Read",                    
-                },
-                StandardScopes.OpenId,
-                StandardScopes.Profile,
-                StandardScopes.OfflineAccess
+                    Enabled = true,
+                    Name = "roles",
+                    Type = ScopeType.Identity,
+                    Claims = new List<ScopeClaim>
+                    {
+                        new ScopeClaim("role")
+                    }
+                }
             };
+
+            scopes.AddRange(StandardScopes.All);
+
+            return scopes;
         }
 
         public List<Client> GetClients()
@@ -62,15 +70,18 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 },
                 Enabled = true,
                 Flow = Flows.ResourceOwner,
-                AllowedScopes = new List<string>
-                {
-                    Constants.StandardScopes.OpenId,
-                    Constants.StandardScopes.Profile,
-                    "Read"
-                }               
+                //AllowedScopes = new List<string>
+                //{
+                //    Constants.StandardScopes.OpenId,
+                //    Constants.StandardScopes.Profile,
+                //    Constants.StandardScopes.AllClaims,
+                //    Constants.StandardScopes.Roles                    
+                //}               
+                AllowAccessToAllScopes = true
             };
         }
 
+        #region MvcClient
         private static Client GetMvcClient()
         {
             var redirectUrl = ConfigurationManager.AppSettings["RedirectUrl"];
@@ -102,5 +113,6 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 }
             };
         }
+        #endregion
     }
 }

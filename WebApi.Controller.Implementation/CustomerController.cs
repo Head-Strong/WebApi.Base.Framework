@@ -61,7 +61,7 @@ namespace WebApi.Controller.Implementation
         }
 
         /// <summary>
-        /// Delete Customer
+        /// CustomerDelete Customer
         /// </summary>
         /// <param name="id">Customer Id</param>
         public void Delete(int id)
@@ -112,7 +112,7 @@ namespace WebApi.Controller.Implementation
         }
 
         /// <summary>
-        /// Delete Customer Async By Id
+        /// CustomerDelete Customer Async By Id
         /// </summary>
         /// <param name="id">Customer Id</param>
         /// <returns></returns>

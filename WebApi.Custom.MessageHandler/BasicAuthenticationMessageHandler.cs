@@ -50,7 +50,7 @@ namespace WebApi.Custom.MessageHandler
         {
             var genericIdentity = new GenericIdentity(user.UserName);
 
-            var currentPrincipal = new GenericPrincipal(genericIdentity, user.Roles);
+            var currentPrincipal = new GenericPrincipal(genericIdentity, user.Claims);
 
             Thread.CurrentPrincipal = currentPrincipal;
 

@@ -2,7 +2,9 @@
 using System.Web.Http.Cors;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
+using WebApi.Custom.Configuration;
 using WebApi.Custom.Filters;
+using WebApi.Custom.MessageHandler;
 using WebApi.Custom.ModalBinder;
 using WebApi.Custom.Unity;
 
@@ -33,10 +35,12 @@ namespace WebApi.App
 
             //config.Services.Add(typeof(ModelValidatorProvider), new CustomValidateProvider());
 
-            //config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
+            if (CustomConfigReader.BasicAuthenticationToggle)
+            {
+                config.MessageHandlers.Add(new BasicAuthenticationMessageHandler());
+            }
 
             SwaggerConfig.Register();
-
         }
 
         /// <summary>

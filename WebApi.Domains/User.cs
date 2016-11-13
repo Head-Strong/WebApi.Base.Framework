@@ -18,7 +18,7 @@ namespace WebApi.Domains
 
         public string PhoneNumber { get; set; }
 
-        public string[] Roles { get; set; }
+        public string[] Claims { get; set; }
 
         public string EncodedCredential { get; set; }
     }   

@@ -7,5 +7,6 @@ namespace WebApi.Custom.Configuration
         public const string UserName = "UserName";
         public const string Password = "Password";
         public const string AuthenticationServerUrl = "AuthenticationServerUrl";
+        public const string BasicAndOAuthAuthenticationToggle = "BasicAuthenticationToggle";
     }
 }
