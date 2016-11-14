@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Domains;
@@ -28,6 +29,21 @@ namespace WebApi.Repository.Implementation
             _customers.Add(entity);
 
             return entity;
+        }
+
+        public Customer UpdateEntity(Customer entity)
+        {
+            var getEntity = GetEntities().FirstOrDefault(x => x.Id == entity.Id);
+
+            if (getEntity == null)
+            {
+                throw new InvalidDataException();
+            }
+
+            getEntity.Name = entity.Name;
+            getEntity.LastName = entity.LastName;
+
+            return getEntity;
         }
 
         public IEnumerable<Customer> GetEntities()
@@ -68,6 +84,24 @@ namespace WebApi.Repository.Implementation
 
             _customers.Remove(customer);
         }
+
+        public async Task<Customer> UpdateEntityAsync(Customer entity)
+        {
+            var getEntities = await GetEntitiesAsync();
+
+            var getEntity = getEntities.FirstOrDefault(x => x.Id == entity.Id);
+
+            if (getEntity == null)
+            {
+                throw new InvalidDataException();
+            }
+
+            getEntity.Name = entity.Name;
+            getEntity.LastName = entity.LastName;
+
+            return getEntity;
+        }
+
         #endregion 
 
         #region Private Methods

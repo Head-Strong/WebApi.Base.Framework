@@ -15,6 +15,8 @@ namespace WebApi.Controller.Interface
 
         void Delete(int id);
 
+        CustomerDto Put(Customer customer);
+
         Task<IEnumerable<CustomerDto>> GetAsync();
 
         Task<CustomerDto> GetAsync(int id);
@@ -22,5 +24,7 @@ namespace WebApi.Controller.Interface
         Task<CustomerDto> PostAsync(Customer customer);
 
         Task DeleteAsync(int id);
+
+        Task<CustomerDto> PutAsync(Customer customer);
     }
 }

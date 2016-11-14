@@ -16,7 +16,7 @@ namespace WebApi.Custom.Filters
 
             if (user != null && user.Identity.IsAuthenticated)
             {
-                        
+                var isInRole = user.IsInRole(roles[0]);
             }
             else
             {

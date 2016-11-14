@@ -12,10 +12,14 @@ namespace WebApi.Service.Interface
 
         void DeleteCustomer(int id);
 
+        Customer UpdateCustomer(Customer customer);
+
         Task<Customer> SaveCustomerAsync(Customer customer);
 
         Task<IEnumerable<Customer>> GetCustomersAsync();
 
         Task DeleteCustomerAsync(int id);
+
+        Task<Customer> UpdateCustomerAsync(Customer customer);
     }
 }

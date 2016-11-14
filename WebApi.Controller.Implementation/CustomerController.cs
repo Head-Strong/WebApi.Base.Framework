@@ -5,7 +5,6 @@ using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using WebApi.Controller.Implementation.Translator;
 using WebApi.Controller.Interface;
-using WebApi.Custom.Filters;
 using WebApi.Domains;
 using WebApi.Dto;
 using WebApi.Service.Interface;
@@ -68,9 +67,22 @@ namespace WebApi.Controller.Implementation
         {
             _customerService.DeleteCustomer(id);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public CustomerDto Put([ModelBinder]Customer customer)
+        {
+            customer = _customerService.UpdateCustomer(customer);
+
+            return CustomerTranslator.Translate(customer);
+        }
+
         #endregion
 
-        #region Async Calls
+        #region Asynchronize Calls
         /// <summary>
         /// Get Customers Async
         /// </summary>
@@ -121,6 +133,15 @@ namespace WebApi.Controller.Implementation
         {
             await _customerService.DeleteCustomerAsync(id);
         }
+
+        [Route("api/customer/async")]
+        public async Task<CustomerDto> PutAsync(Customer customer)
+        {
+            customer = await _customerService.UpdateCustomerAsync(customer);
+
+            return CustomerTranslator.Translate(customer);
+        }
+
         #endregion
     }
 }

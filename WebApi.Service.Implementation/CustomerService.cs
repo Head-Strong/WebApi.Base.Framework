@@ -32,6 +32,14 @@ namespace WebApi.Service.Implementation
         {
             _customerRepository.DeleteEntity(id);
         }
+
+        public Customer UpdateCustomer(Customer customer)
+        {
+            var updatedCustomer = _customerRepository.UpdateEntity(customer);
+
+            return updatedCustomer;
+        }
+
         #endregion
 
         #region Async Calls
@@ -51,6 +59,14 @@ namespace WebApi.Service.Implementation
         {
             await _customerRepository.DeleteEntityAsync(id);
         }
+
+        public async Task<Customer> UpdateCustomerAsync(Customer customer)
+        {
+            var updatedCustomer = await _customerRepository.UpdateEntityAsync(customer);
+
+            return updatedCustomer;
+        }
+
         #endregion
     }
 }

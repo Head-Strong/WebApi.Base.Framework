@@ -7,6 +7,8 @@ namespace WebApi.Repository.Interface
     {
         T SaveEntity(T entity);
 
+        T UpdateEntity(T entity);
+
         IEnumerable<T> GetEntities();
 
         void DeleteEntity(int id);
@@ -16,5 +18,7 @@ namespace WebApi.Repository.Interface
         Task<IEnumerable<T>> GetEntitiesAsync();
 
         Task DeleteEntityAsync(int id);
+
+        Task<T> UpdateEntityAsync(T entity);
     }
 }
