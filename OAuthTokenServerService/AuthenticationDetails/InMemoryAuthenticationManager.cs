@@ -17,8 +17,8 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 {
                     Enabled = true,
                     Username = "aditya",
-                    Password = "test",
-                    Subject = "Aditya",
+                    Password = "admin",
+                    Subject = "Adi-Admin",
                     Claims = new List<Claim>
                     {
                         new Claim(Constants.ClaimTypes.Email, "aditya.magotra@gmail.com"),
@@ -26,6 +26,19 @@ namespace OAuthTokenServerService.AuthenticationDetails
                         new Claim(Constants.ClaimTypes.Role, "CustomerRead"),
                         new Claim(Constants.ClaimTypes.Role, "CustomerWrite")
                     }                    
+                },
+                new InMemoryUser
+                {
+                    Enabled = true,
+                    Username = "adi",
+                    Password = "read",
+                    Subject = "Adi-Read",
+                    Claims = new List<Claim>
+                    {
+                        new Claim(Constants.ClaimTypes.Email, "aditiya.magotra@gmail.com"),
+                        new Claim(Constants.ClaimTypes.Name, "Adi"),
+                        new Claim(Constants.ClaimTypes.Role, "CustomerRead")
+                    }
                 }
             };
         }
@@ -38,10 +51,13 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 {
                     Enabled = true,
                     Name = "roles",
-                    Type = ScopeType.Identity,
+                    Type = ScopeType.Resource,
                     Claims = new List<ScopeClaim>
                     {
-                        new ScopeClaim("role")
+                        new ScopeClaim(Constants.ClaimTypes.Role),
+                        new ScopeClaim(Constants.ClaimTypes.Name),
+                        new ScopeClaim(Constants.ClaimTypes.Email),
+                        new ScopeClaim(Constants.ClaimTypes.Address)
                     }
                 }
             };

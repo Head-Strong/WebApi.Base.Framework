@@ -27,7 +27,7 @@ namespace WebApi.App
                     new IdentityServerBearerTokenAuthenticationOptions
                     {
                         Authority = CustomConfigReader.AuthenticationServerUrl,
-                        RequiredScopes = new List<string> { "roles", "openid", "profile" }
+                        RequiredScopes = new List<string> { "roles", "openid", "profile", "email" }
                     });
             }
         }
