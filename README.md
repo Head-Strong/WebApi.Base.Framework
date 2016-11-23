@@ -22,11 +22,13 @@ j) Basic Authentication.
 
 k) Identity Server 3 Setup is done.
 
+l) Identity Server Authentication / Authorization
+ 
 Pending features : 
 
 a) MongoDB 
 
-b) Authentication / Authorization
+
 
 Request Header :
 
@@ -82,9 +84,11 @@ OAuth2 Identity Server Settings :
 client_id : oauth2_api
 client_secret : oauth2apiservicessecret
 grant_type : password
-scope : openid
+scope : openid profile roles email
 username : aditya
 password : test
+
+x-www-form-urlencoded
 
 
 
