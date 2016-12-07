@@ -105,6 +105,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Docs", "01_Docs", "{1378
 		Dependencies Graph.png = Dependencies Graph.png
 		FiddlerRequest.saz = FiddlerRequest.saz
 		README.md = README.md
+		Session_With_OAuth.saz = Session_With_OAuth.saz
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TokenServer-Infrastructure", "TokenServer-Infrastructure", "{7AD31090-31A6-47D8-9206-723E1FF39423}"

@@ -21,10 +21,8 @@ namespace OAuthTokenServerService.AuthenticationDetails
                     Subject = "Adi-Admin",
                     Claims = new List<Claim>
                     {
-                        new Claim(Constants.ClaimTypes.Email, "aditya.magotra@gmail.com"),
-                        new Claim(Constants.ClaimTypes.Name, "Aditya"),
-                        new Claim(Constants.ClaimTypes.Role, "CustomerRead"),
-                        new Claim(Constants.ClaimTypes.Role, "CustomerWrite")
+                       new Claim(Constants.ClaimTypes.Profile, "fo-write"),
+                       new Claim(Constants.ClaimTypes.Profile, "fo-read")
                     }                    
                 },
                 new InMemoryUser
@@ -35,10 +33,8 @@ namespace OAuthTokenServerService.AuthenticationDetails
                     Subject = "Adi-Read",
                     Claims = new List<Claim>
                     {
-                        new Claim(Constants.ClaimTypes.Email, "aditiya.magotra@gmail.com"),
-                        new Claim(Constants.ClaimTypes.Name, "Adi"),
-                        new Claim(Constants.ClaimTypes.Role, "CustomerRead")
-                    }
+                        new Claim(Constants.ClaimTypes.Profile, "fo-read")
+                    },                   
                 }
             };
         }
@@ -50,14 +46,21 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 new Scope
                 {
                     Enabled = true,
-                    Name = "roles",
+                    Name = "adread",
                     Type = ScopeType.Resource,
                     Claims = new List<ScopeClaim>
                     {
-                        new ScopeClaim(Constants.ClaimTypes.Role),
-                        new ScopeClaim(Constants.ClaimTypes.Name),
-                        new ScopeClaim(Constants.ClaimTypes.Email),
-                        new ScopeClaim(Constants.ClaimTypes.Address)
+                        new ScopeClaim(Constants.ClaimTypes.Profile),                        
+                    }
+                },
+                new Scope
+                {
+                    Enabled = true,
+                    Name = "adwrite",
+                    Type = ScopeType.Resource,
+                    Claims = new List<ScopeClaim>
+                    {
+                        new ScopeClaim(Constants.ClaimTypes.Profile),                        
                     }
                 }
             };
@@ -86,14 +89,12 @@ namespace OAuthTokenServerService.AuthenticationDetails
                 },
                 Enabled = true,
                 Flow = Flows.ResourceOwner,
-                //AllowedScopes = new List<string>
-                //{
-                //    Constants.StandardScopes.OpenId,
-                //    Constants.StandardScopes.Profile,
-                //    Constants.StandardScopes.AllClaims,
-                //    Constants.StandardScopes.Roles                    
-                //}               
-                AllowAccessToAllScopes = true
+                AllowedScopes = new List<string>
+                {
+                    "adread",
+                    "adwrite",
+                    Constants.StandardScopes.OpenId,                
+                }
             };
         }
 

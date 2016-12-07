@@ -20,7 +20,7 @@ namespace WebApi.Custom.Filters
 
             if (user != null && user.Identity.IsAuthenticated)
             {
-                var claims = user.Claims.ToList().FindAll(x => x.Type.Contains("role"));
+                var claims = user.Claims.ToList().FindAll(x => x.Type.Contains("profile"));
 
                 var claimsAssociatedWithUser = claims.Select(claim => claim.Value).ToArray();
 
