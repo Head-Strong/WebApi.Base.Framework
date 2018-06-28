@@ -103,7 +103,8 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319>InstallUtil.exe
 C:\Windows\Microsoft.NET\Framework\v4.0.30319>InstallUtil.exe /u 
 "C:\Users\Aditya\Documents\Visual Studio 2015\Projects\WebApi.Base.Framework\WebApi.Owin.SelfHost\bin\Debug\WebApi.Owin.SelfHost.exe"
 
-JWT
+JWT : 
+---------------------------------
 1. We can send it in form of 
 	a. Query string
 	b. Form body parameter
