@@ -102,3 +102,41 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319>InstallUtil.exe
 -- Uninstall Windows Service
 C:\Windows\Microsoft.NET\Framework\v4.0.30319>InstallUtil.exe /u 
 "C:\Users\Aditya\Documents\Visual Studio 2015\Projects\WebApi.Base.Framework\WebApi.Owin.SelfHost\bin\Debug\WebApi.Owin.SelfHost.exe"
+
+JWT
+1. We can send it in form of 
+	a. Query string
+	b. Form body parameter
+	c. Cookie
+	d. Http Header (x-access-token)
+
+2. Single Sign On
+
+3. JWT has three sections separated with dots.
+	header.payload.signature
+
+4. All are base64 encoded: To provide same format.
+
+5. This information cannot be modified. If someone tempers it then the token wil be invalid.
+
+Header - 
+	-> 1.  typ : JWT
+	-> 2.  alg  : hashing algorithm (HS256, RS512, ES384 etc)
+
+Payload - 
+	Iss - Issuer App
+	Sub - Subject
+	Aud - audience
+	Exp - Expiration time
+	iat - issued at
+	jti - JWT id
+
+Signature - A hash of header and payload using a secret.
+
+var s = base64Encode(header) + "." + base64Encode(payload)
+
+var signature = hashAlgHs256(s, 'secret')
+
+var jwt =  s + base64Encode(signature)
+	
+
